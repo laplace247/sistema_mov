@@ -1,2 +1,12 @@
-Codigo del proyecto hecho en practicas-SENATI quinto semestre             
-Nombre: Sistema de vigilancia con camara HD con sensor y deteccion de movimiento Arduino con App de alarma Android
+# WebApp 
+
+Para iniciar la webapp  
+
+```
+npm install express pg bcrypt cors
+```
+
+```
+node server.js
+```
+
