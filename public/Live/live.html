@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>En Directo - Sistema de Vigilancia</title>
+  <link rel="icon" href="/img/logo.png" type="image/png">
+  <link rel="stylesheet" href="live.css">
+  <link href="https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-left">
+      <img src="/img/logo.png" alt="Logo" class="logo">
+    </div>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    <nav class="navbar" id="navbar">
+      <a href="/Dashboard/dashboard.html"">HOME</a>
+      <a href="/Servicios/servicios.html">SERVICIOS</a>
+      <a href="/Registro/registro.html">REGISTRO</a>
+      <a href="/Grabaciones/grabaciones.html">GRABACIONES</a>
+      <a href="/Live/live.html" class="active">EN DIRECTO</a>
+      <a href="/Acerca/acerca.html">ACERCA DE</a>
+      <button class="logout responsive-only">CERRAR SESIÓN</button> <!-- Solo visible en responsive -->
+    </nav>
+
+    <button class="logout desktop-only">CERRAR SESIÓN</button>
+  </header>
+
+  <section class="live-view">
+    <div class="stream-box">
+      <h1>Transmisión en Vivo</h1>
+      <h3>Visualización en tiempo real desde la cámara de seguridad</h3>
+      <div class="video-frame">
+        <!-- Aquí va el feed en vivo del ESP32-CAM u otro módulo -->
+        <iframe src="http://localhost:5000/video_feed" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p class="description">
+        El sistema transmite en vivo cualquier movimiento detectado en el área monitoreada.
+        Esta función permite supervisión en tiempo real desde cualquier dispositivo conectado a la red local.
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>&copy; 2025 Sistema de Vigilancia. Todos los derechos reservados.</span>
+    <div>
+      <span>Desarrollado por: <a href="#">laplace247</a> Teléfono: <a href="tel:+51970668644">+51 970668644</a>
+        Contacto: <a href="mailto:mv38621@gmail.com">mv38621@gmail.com</a></span>
+    </div>
+    <div>
+      <a href="#">Términos y condiciones</a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navbar = document.getElementById("navbar");
+      navbar.classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
