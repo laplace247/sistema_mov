@@ -78,15 +78,15 @@ Este proyecto implementa una solución de seguridad que integra:
 
 - **Servidor PythonFlask (procesador de video):**
 
-  
+  <img width="971" height="230" alt="Servidor_PythonFlask_el_procesador_de_video" src="https://github.com/user-attachments/assets/78fcfaa1-422b-4ed1-8a0f-fb3c8b152b47" />
 
 - **Servidor Node.js (backend webapp):**
 
-  
+  <img width="964" height="197" alt="Servidor_Node js_el_backend_de_la_webapp" src="https://github.com/user-attachments/assets/a76783eb-0844-4720-aab8-46ef934bdf27" />
 
 - **Servidor de desarrollo de React (frontend):**
-
   
+  <img width="962" height="196" alt="Servidor_de_desarrollo_de_React_el_frontend" src="https://github.com/user-attachments/assets/0d3fcea4-2b54-4aa0-960e-a5841ca8ca11" />
 
 ---
 
