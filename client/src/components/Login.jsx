@@ -56,10 +56,10 @@ export default function Login() {
           localStorage.removeItem('rememberUser');
         }
 
-        login(data.user, remember);
         setLoggedUser(data.user);
-
+        
         setTimeout(() => {
+          login(data.user, remember);
           navigate('/dashboard');
         }, 2000);
       } else {
