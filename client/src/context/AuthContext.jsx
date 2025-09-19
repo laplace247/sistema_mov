@@ -5,7 +5,7 @@ const AuthContext = createContext();
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error('useAuth debe usarse dentro de un AuthProvider');
   }
   return context;
 };
@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
           setUser(JSON.parse(userData));
         }
       } catch (error) {
-        console.error('Error parsing user data:', error);
+        console.error('Error al obtener los datos del usuario:', error);
         localStorage.removeItem('userData');
         sessionStorage.removeItem('userData');
       } finally {
