@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './Login.css';
 
 const API_URL = 'http://localhost:3000/api';
 
 export default function Login() {
-  const navigate = useNavigate(); // <-- aquí va
+  const navigate = useNavigate();
+  const { login, isAuthenticated } = useAuth();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [remember, setRemember] = useState(false);
@@ -15,12 +17,16 @@ export default function Login() {
   const [loggedUser, setLoggedUser] = useState(null);
 
   useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/dashboard');
+      return;
+    }
     const savedUsername = localStorage.getItem('rememberUser');
     if (savedUsername) {
       setUsername(savedUsername);
       setRemember(true);
     }
-  }, []);
+  }, [isAuthenticated, navigate]);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -45,17 +51,14 @@ export default function Login() {
 
       if (res.ok && data.success) {
         if (remember) {
-          localStorage.setItem('userData', JSON.stringify(data.user));
           localStorage.setItem('rememberUser', username.trim());
         } else {
-          sessionStorage.setItem('userData', JSON.stringify(data.user));
           localStorage.removeItem('rememberUser');
-          localStorage.removeItem('userData');
         }
 
+        login(data.user, remember);
         setLoggedUser(data.user);
 
-        // Redirigir luego de 2 segundos
         setTimeout(() => {
           navigate('/dashboard');
         }, 2000);
@@ -63,7 +66,7 @@ export default function Login() {
         setError(data.message || 'Error al iniciar sesión');
         setPassword('');
       }
-    } catch {
+    } catch (error) {
       setError('Error de conexión. Verifica que el servidor esté ejecutándose.');
     } finally {
       setLoading(false);

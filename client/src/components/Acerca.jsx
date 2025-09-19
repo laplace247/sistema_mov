@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './Acerca.css';
 
 const Acerca = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
   const toggleMenu = () => {
     setMenuOpen(prev => !prev);
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('userData');
-    sessionStorage.removeItem('userData');
+    logout();
     navigate('/');
   };
 

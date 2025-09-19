@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './SignUp.css';
 
 const API_URL = 'http://localhost:3000/api';
 
 export default function Signup() {
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -18,6 +20,12 @@ export default function Signup() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/dashboard');
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -93,12 +101,12 @@ export default function Signup() {
         setSuccess(true);
         // Redirigir al login después de 3 segundos
         setTimeout(() => {
-          navigate('/login');
+          navigate('/');
         }, 3000);
       } else {
         setError(data.message || 'Error al crear la cuenta');
       }
-    } catch {
+    } catch (error) {
       setError('Error de conexión. Verifica que el servidor esté ejecutándose.');
     } finally {
       setLoading(false);
