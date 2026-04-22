@@ -147,32 +147,34 @@ export default function Signup() {
         <div className={`signup-form ${error ? 'shake' : ''}`}>
           {error && <div className="error-message">{error}</div>}
 
-          <div className="form-group">
-            <label htmlFor="fullName">Nombre completo</label>
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              placeholder="Ingresa tu nombre completo"
-              autoComplete="name"
-              value={formData.fullName}
-              onChange={handleInputChange}
-              onKeyPress={onKeyPress}
-            />
-          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="fullName">Nombre completo</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Nombre completo"
+                autoComplete="name"
+                value={formData.fullName}
+                onChange={handleInputChange}
+                onKeyPress={onKeyPress}
+              />
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="username">Nombre de usuario</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              placeholder="Ingresa tu nombre de usuario"
-              autoComplete="username"
-              value={formData.username}
-              onChange={handleInputChange}
-              onKeyPress={onKeyPress}
-            />
+            <div className="form-group">
+              <label htmlFor="username">Usuario</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Usuario"
+                autoComplete="username"
+                value={formData.username}
+                onChange={handleInputChange}
+                onKeyPress={onKeyPress}
+              />
+            </div>
           </div>
 
           <div className="form-group">
@@ -202,12 +204,8 @@ export default function Signup() {
                 onChange={handleInputChange}
                 onKeyPress={onKeyPress}
               />
-              <span 
-                className="toggle-password" 
-                onClick={() => togglePasswordVisibility('password')}
-                style={{ userSelect: 'none' }}
-              >
-                {showPassword ? '◎' : '◉'}
+              <span className="toggle-password" onClick={() => togglePasswordVisibility('password')}>
+                <i className={showPassword ? "fas fa-eye-slash" : "fas fa-eye"}></i>
               </span>
             </div>
           </div>
@@ -225,12 +223,8 @@ export default function Signup() {
                 onChange={handleInputChange}
                 onKeyPress={onKeyPress}
               />
-              <span 
-                className="toggle-password" 
-                onClick={() => togglePasswordVisibility('confirm')}
-                style={{ userSelect: 'none' }}
-              >
-                {showConfirmPassword ? '◎' : '◉'}
+              <span className="toggle-password" onClick={() => togglePasswordVisibility('confirm')}>
+                <i className={showConfirmPassword ? "fas fa-eye-slash" : "fas fa-eye"}></i>
               </span>
             </div>
           </div>

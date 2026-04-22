@@ -130,8 +130,8 @@ export default function Login() {
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyPress={onKeyPress}
               />
-              <span className="toggle-password" onClick={togglePasswordVisibility} style={{ userSelect: 'none' }}>
-                {showPassword ? '◎' : '◉'}
+              <span className="toggle-password" onClick={togglePasswordVisibility}>
+                <i className={showPassword ? "fas fa-eye-slash" : "fas fa-eye"}></i>
               </span>
             </div>
           </div>

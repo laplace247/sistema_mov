@@ -8,9 +8,9 @@
   font-family: 'Poppins', sans-serif;
 }
 
+
 /* Contenedor Principal del Login */
 .login-container {
-  background: url('https://i.postimg.cc/qqGq7bxp/271a410dec197345e6cf63e2ea0c242dce92d929.gif') no-repeat center center/cover;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -28,8 +28,8 @@
   max-width: 450px;
   position: relative;
   border: 2px solid rgba(0, 171, 240, 0.2);
-  padding: 30px 35px;
-  margin: 10px;
+padding: 20px 35px;
+  margin: 0;
 }
 
 .login-box::before {
@@ -75,17 +75,15 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
 /* Formulario de Login */
 .login-form {
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .login-form.shake {
@@ -93,9 +91,8 @@
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
+  0%, 100% { border-color: rgba(0, 171, 240, 0.3); }
+  25%, 75% { border-color: #ff6b6b; }
 }
 
 /* Grupos de Formulario */
@@ -133,7 +130,6 @@
   border-color: #00abf0;
   background-color: rgba(8, 27, 41, 0.9);
   box-shadow: 0 0 15px rgba(0, 171, 240, 0.3);
-  transform: translateY(-2px);
 }
 
 .form-group input::placeholder {
@@ -154,7 +150,6 @@
   position: absolute;
   right: 12px;
   top: 50%;
-  transform: translateY(-50%);
   cursor: pointer;
   color: #00abf0;
   font-size: 18px;
@@ -166,7 +161,6 @@
 
 .toggle-password:hover {
   color: #0088cc;
-  transform: translateY(-50%) scale(1.1);
 }
 
 /* Recordar Sesión */
@@ -217,18 +211,16 @@
 .login-button:hover:not(:disabled) {
   background: #081b29;
   color: #00abf0;
-  transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 171, 240, 0.3);
 }
 
 .login-button:active:not(:disabled) {
-  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(0, 171, 240, 0.4);
 }
 
 .login-button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
-  transform: none;
 }
 
 /* Enlace de Registro */
@@ -261,19 +253,17 @@
   margin-bottom: 20px;
   font-size: 14px;
   border: 2px solid rgba(231, 76, 60, 0.3);
-  animation: slideDown 0.3s ease;
+  animation: fadeIn 0.3s ease;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000,
                -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-@keyframes slideDown {
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -292,16 +282,16 @@
   border: 2px solid transparent;
   border-top-color: #081b29;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: pulse 1s ease-in-out infinite;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
 }
 
 /* Indicadores de foco para accesibilidad */
@@ -407,7 +397,6 @@
 /* Efectos adicionales para mantener consistencia con Dashboard */
 .login-box:hover {
   box-shadow: 0 0 35px rgba(0, 171, 240, 0.4);
-  transform: translateY(-2px);
 }
 
 .form-group input[type="text"]:hover,
